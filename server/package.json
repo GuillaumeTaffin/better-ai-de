@@ -1,0 +1,25 @@
+{
+  "name": "better-ai-de-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["dashboard"],
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "dev:dashboard": "cd dashboard && bun run dev",
+    "build:dashboard": "cd dashboard && bun run build",
+    "dev:all": "concurrently -n server,dashboard -c blue,green \"bun run dev\" \"bun run dev:dashboard\"",
+    "check": "tsc --noEmit",
+    "check:dashboard": "cd dashboard && bun run check",
+    "check:all": "bun run check && bun run check:dashboard"
+  },
+  "dependencies": {
+    "elysia": "^1.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/bun": "^1.2.0",
+    "concurrently": "^9.0.0"
+  }
+}
