@@ -17,3 +17,4 @@ Icon?
 # Environment
 .env
 .env.local
+.gradle
