@@ -2,10 +2,10 @@ import { existsSync } from "node:fs";
 import { resolve, join, extname } from "node:path";
 import { Elysia } from "elysia";
 import { health } from "./routes/health";
-import { proxy } from "./proxy";
+import { session } from "./session";
 
 export function createApp() {
-  const app = new Elysia().use(health).use(proxy);
+  const app = new Elysia().use(health).use(session);
 
   const distDir = resolve("dashboard/dist");
 
